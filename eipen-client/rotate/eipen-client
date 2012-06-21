@@ -1,0 +1,9 @@
+/var/log/eipen/*log {
+	missingok
+	notifempty
+	create 0655 root root
+	sharedscripts
+	postrotate
+		/sbin/service eipen-client restart > /dev/null 2>/dev/null || true
+	endscript
+}

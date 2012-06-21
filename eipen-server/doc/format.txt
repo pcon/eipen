@@ -1,0 +1,8 @@
+The following is a list of macros that Eipen supports for the message
+files used for emails to clients
+
+%course_name - The name of the course started
+%host_ip - The ip address of the guest started
+%root_password - The root password of the guest
+
+

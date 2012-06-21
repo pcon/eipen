@@ -1,0 +1,3 @@
+Machine for %course_name is ready
+Your machine for %course_name is ready.
+You can login as root@%client_ip with the password of '%root_password'

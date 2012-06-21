@@ -1,0 +1,278 @@
+* {     
+        margin: 0;
+        padding: 0;
+}
+
+body { 
+	background-color: #fff; 
+	margin: 0;
+	padding: 0;
+}
+
+A:link { 
+	text-decoration: none; 
+	color: #000000; 
+}
+
+A:hover { 
+	text-decoration: none; 
+	color: #000000; 
+}
+
+A:visited { 
+	text-decoration: none; 
+	color: #000000; 
+}
+
+A:active { 
+	text-decoration: none; 
+	color: #000000; 
+}
+
+#wrapper {
+	width: 90%;
+	padding: 10;
+	margin: 0 auto;
+	background-color: #f7f3dc;
+	clear: both;
+}
+
+#footerwrapper {
+	background-color: #c00;
+	width: 100%;
+	clear: both;
+	position: relative;
+	bottom: 0;
+}
+
+#navwrapper {
+        background-color: #c00;
+        width: 100%;
+}
+
+#nav {
+        list-style: none;
+        color: #000000;
+        font-weight: bold;
+        display: inline;
+        padding: 0px;
+        margin: 35px;
+        clear: both;
+}
+
+#subnavwrapper {
+        background-color: #dedcc1;
+        width: 100%;
+	margin-bottom: 25px;
+}
+
+#subnav {  
+        list-style: none;
+        color: #000000;
+        display: inline;
+        padding: 0px;
+        margin: 35px;
+        clear: both;
+} 
+
+#status_header {
+	font-weight: bold;
+        color: #4a4b60;
+}
+
+#form ul {
+	padding: auto 0;
+	margin: 0 auto;
+	list-style: none;
+	clear: both;
+}
+
+#form li.formheader {
+	list-style: none;
+	width: 100%;
+	text-align: center;
+	display: table-row;
+	font-weight: bold;
+}
+
+#form li.formlabel {
+	list-style: none;
+	width: 25%;
+	text-align: right;
+	display: table-cell;
+	padding: 3px 5px;
+}
+
+#form li.forminput {
+	list-style: none;
+	width: 75%;
+	display: table-cell;
+}
+
+#form li.formdata {
+	list-style: none;
+	width: 75%;
+	display: table-cell;
+}
+
+#form  li.formsplit {
+	display: table-row;
+}
+
+#header {
+	padding: 0 auto;
+	list-style: none;
+	clear: both;
+	border-width: 0 0 1px 0;
+	border-color: #000;
+	border-style: solid;
+	color: #4a4b60;
+}
+
+#header li {
+	font-weight: bold;
+}
+
+#header ul {
+	padding: auto 0;
+	margin: 0 auto;
+        list-style: none;
+        clear: both;
+}
+
+#status_sub {
+
+}
+
+#status_sub li {
+	padding: 0 auto;
+	margin: 5px 0;
+	list-style: none;
+	clear: both;
+}
+
+#status_sub li:hover {
+	background-color: #dedcc1;
+}
+
+#status_sub ul {
+	padding: auto 0;
+	margin: 0 auto;
+        list-style: none;
+        clear: both;
+}
+
+#status_box {
+     display: inline;
+     border-width: 1px;
+     border-style: solid;
+     border-color: #000;
+     background-color: #fff;
+     padding-left: 5px;
+     padding-right: 5px;
+     padding-bottom: 0px;
+     padding-top: 0px;
+}
+
+#status_info {
+	display: inline;
+	position: absolute;
+	right: 10%;
+}
+
+#status_right_header {
+	display: inline;
+        position: absolute;
+        right: 10%;	
+	font-weight: bold;
+}
+
+#status_right {
+	display: inline;
+     position: absolute;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+     right: 10%;	
+	font-weight: bold;
+/*	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+	background-color: #fff;*/
+}
+
+#status_good {
+	display: inline;
+	color: #090;
+	position: absolute;
+	right: 10%;
+	font-weight: bold;
+}
+
+#status_bad {
+	display: inline;
+	color: #900;
+	position: absolute;
+	right: 10%;
+	font-weight: bold;
+}
+
+#message {
+	border-width: 1px;
+	border-color: #000;
+	text-align: center;
+	font-weight: bold;
+}
+
+#message_good {
+	display: inline;
+	color: #090;
+}
+
+#message_bad {
+	display: inline;
+	color: #900;
+}
+
+.graph {
+	height: 16px;
+	border: 1px solid #fff;
+	width: 150px;
+	margin: 0 auto;
+	float: center;
+	text-align: left;
+	line-height: 16px;
+	background-color: #000;
+}
+
+.graph span {
+	padding: 0 0 0 2px;
+        float: left;
+        font-size: 9px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        width: 100%
+}
+
+.graphFill {
+	height: 16px;
+        background-color: #900;
+        text-align: center;
+}
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+* .clearfix {display: block;}
+*/* End hide from IE-mac */

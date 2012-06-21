@@ -1,0 +1,136 @@
+#!/bin/sh
+#
+# eipen The daemon that cleans up sessions after they have expired
+#
+# chkconfig:   2345 20 80
+# description: The daemon that cleans up sessions after the have expired
+# processname: eipen-server
+
+### BEGIN INIT INFO
+# Provides: eipen-server
+# Required-Start: $local_fs $network mysqld
+# Required-Stop: $local_fs $network mysqld
+# Default-Start: 2345
+# Default-Stop: 016
+# Short-Description: The daemon that cleans up sessions after the have expired
+### END INIT INFO
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+<<<<<<< .mine
+exec="/usr/bin/eipen/eipend.py"
+execxmlrpc="/usr/bin/eipen/eipend-xmlrpc.py"
+=======
+execpl="/usr/bin/eipen/eipend.pl"
+execpy="/usr/bin/eipen/eipend.py"
+>>>>>>> .r31
+prog="eipen-server"
+#config="<path to major config file>"
+
+[ -e /etc/sysconfig/$prog ] && . /etc/sysconfig/$prog
+
+lockfile=/var/lock/subsys/$prog
+<<<<<<< .mine
+pidfile=/var/run/$prog.pid
+=======
+pidfilepl=/var/run/$prog.pl.pid
+pidfilepy=/var/run/$prog.py.pid
+>>>>>>> .r31
+
+setpidfile() {
+    PID=`ps aux | grep $exec | grep -v grep | awk '{print $2}'`
+    echo $PID > $pidfile
+}
+
+start() {
+#    [ -x $exec ] || exit 5
+#    [ -f $config ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon /usr/bin/python $exec start
+    daemon /usr/bin/python $execxmlrpc start
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    setpidfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    /usr/bin/python $exec stop
+    /usr/bin/python $execxmlrpc stop
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile && rm -f $pidfile
+    return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+reload() {
+    restart
+}
+
+force_reload() {
+    restart
+}
+
+rh_status() {
+    PID=`ps aux | grep $exec | grep -v grep | awk '{print $2}'`
+    if [ "$PID" == "" ]
+    then
+       echo "$prog is not running"
+       return -1
+    else
+		PID2=`ps aux | grep $execxmlrpc | grep -v grep | awk '{print $2}'`
+		if [ "$PID2" == "" ]
+		then
+			echo "$prog is running but XMLRPC is dead... ($PID)"
+		else
+			echo "$prog is running... ($PID $PID2)"
+		fi
+    fi
+
+    return 0
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        restart
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|try-restart|reload|force-reload}"
+        exit 2
+esac
+exit $?
